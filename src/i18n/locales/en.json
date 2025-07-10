@@ -1,5 +1,23 @@
 {
   "dashboard": {
-    "title": "Welcome to the Client Portal"
+    "title": "Welcome to the Client Portal",
+    "subtitle": "Track your portfolio and access documents securely.",
+    "accountBalance": "Account Balance",
+    "recentTransactions": "Recent Transactions",
+    "contribution": "Contribution - $500 (July 1)",
+    "withdrawal": "Withdrawal - $200 (June 28)",
+    "assetAllocation": "Asset Allocation",
+    "allocationDetails": "Equity: 60% | Bonds: 30% | Cash: 10%"
+  },
+  "sidebar": {
+    "summary": "Summary",
+    "portfolio": "Portfolio",
+    "estatements": "eStatements",
+    "profile": "Profile",
+    "documents": "Documents",
+    "approval": "Client Approval",
+    "tools": "Charts & Tools",
+    "householding": "Householding",
+    "advisor": "Advisor"
   }
 }

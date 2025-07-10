@@ -4,6 +4,7 @@ import DashboardPage from './pages/DashboardPage'
 import LoginPage from './pages/LoginPage'
 import AuthCallBackPage from './pages/AuthCallBackPage'
 import Layout from './components/layout/layout'
+
 const App = () => {
   return (
     <BrowserRouter>

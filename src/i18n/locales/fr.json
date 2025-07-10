@@ -1,5 +1,23 @@
-{
-  "dashboard": {
-    "title": "Bienvenue sur le Portail Client"
+  {
+    "dashboard": {
+      "title": "Bienvenue sur le Portail Client",
+      "subtitle": "Suivez votre portefeuille et accédez aux documents en toute sécurité.",
+      "accountBalance": "Solde du compte",
+      "recentTransactions": "Transactions récentes",
+      "contribution": "Contribution - 500 $ (1er juillet)",
+      "withdrawal": "Retrait - 200 $ (28 juin)",
+      "assetAllocation": "Répartition des actifs",
+      "allocationDetails": "Actions : 60 % | Obligations : 30 % | Espèces : 10 %"
+    },
+    "sidebar": {
+      "summary": "Résumé",
+      "portfolio": "Portefeuille",
+      "estatements": "Relevés électroniques",
+      "profile": "Profil",
+      "documents": "Documents",
+      "approval": "Approbation du client",
+      "tools": "Graphiques et outils",
+      "householding": "Regroupement familial",
+      "advisor": "Conseiller"
+    }
   }
-}
