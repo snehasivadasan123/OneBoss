@@ -9,6 +9,26 @@
     "assetAllocation": "Asset Allocation",
     "allocationDetails": "Equity: 60% | Bonds: 30% | Cash: 10%"
   },
+  "investment": {
+    "totalAssets": "Total Assets",
+    "asOfDate": "as of October 25, 2019 except where otherwise specified",
+    "openClientName": "OPEN Client Name, Individual",
+    "openInvestmentPlan": "OPEN INVESTMENT PLAN",
+    "totalValue": "Total Value",
+    "beneficiary": "Beneficiary",
+    "estate": "Estate",
+    "supplierAccount": "Supplier Account",
+    "units": "Units",
+    "price": "Price",
+    "marketValue": "Market Value",
+    "bookValue": "Book Value",
+    "transactions": "Transactions",
+    "signatureGlobalResourceFel": "SIGNATURE GLOBAL RESOURCE CORP CL FEL CAD",
+    "harbourCorporateClassFel": "HARBOUR CORPORATE CLASS FEL CAD",
+    "signatureGlobalResourceDsc": "SIGNATURE GLOBAL RESOURCE CORP CL DSC CAD",
+    "harbourCorporateClassDsc": "HARBOUR CORPORATE CLASS DSC CAD",
+    "signatureHighIncomeFel": "SIGNATURE HIGH INCOME CORP CLASS FEL CAD"
+  },
   "sidebar": {
     "summary": "Summary",
     "portfolio": "Portfolio",
@@ -19,5 +39,8 @@
     "tools": "Charts & Tools",
     "householding": "Householding",
     "advisor": "Advisor"
+  },
+  "summary": {
+    "Investment": "Investment"
   }
 }

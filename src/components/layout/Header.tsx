@@ -1,6 +1,4 @@
 import { Search, } from "lucide-react"
-// Update the path below to the correct relative path if needed
-// Update the path below to the correct relative path if needed
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"

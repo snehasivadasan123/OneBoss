@@ -16,15 +16,15 @@ import { NavLink } from "react-router-dom"
 import { Button } from "@/components/ui/button"
 
 const navigationItems = [
-  { key: "summary", url: "/dashboard", icon: BarChart3 },
+  { key: "summary", url: "/summary", icon: BarChart3 },
   { key: "portfolio", url: "/portfolio", icon: TrendingUp },
-  { key: "estatements", url: "/estatements", icon: FileText },
-  { key: "profile", url: "/profile", icon: User },
-  { key: "documents", url: "/documents", icon: Folder },
-  { key: "approval", url: "/approval", icon: CheckSquare },
-  { key: "tools", url: "/tools", icon: BarChart3 },
-  { key: "householding", url: "/householding", icon: Home },
-  { key: "advisor", url: "/advisor", icon: UserCheck }
+  { key: "estatements", url: "/portfolio", icon: FileText },
+  { key: "profile", url: "/summary", icon: User },
+  { key: "documents", url: "/portfolio", icon: Folder },
+  { key: "approval", url: "/summary", icon: CheckSquare },
+  { key: "tools", url: "/portfolio", icon: BarChart3 },
+  { key: "householding", url: "/summary", icon: Home },
+  { key: "advisor", url: "/portfolio", icon: UserCheck }
 ]
 
 interface SidebarProps {

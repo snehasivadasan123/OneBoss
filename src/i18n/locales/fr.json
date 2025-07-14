@@ -9,6 +9,26 @@
       "assetAllocation": "Répartition des actifs",
       "allocationDetails": "Actions : 60 % | Obligations : 30 % | Espèces : 10 %"
     },
+    "investment": {
+      "totalAssets": "Total des actifs",
+      "asOfDate": "en date du 25 octobre 2019 sauf indication contraire",
+      "openClientName": "OPEN Nom du client, Individuel",
+      "openInvestmentPlan": "PLAN D'INVESTISSEMENT OUVERT",
+      "totalValue": "Valeur totale",
+      "beneficiary": "Bénéficiaire",
+      "estate": "Succession",
+      "supplierAccount": "Compte fournisseur",
+      "units": "Unités",
+      "price": "Prix",
+      "marketValue": "Valeur marchande",
+      "bookValue": "Valeur comptable",
+      "transactions": "Transactions",
+      "signatureGlobalResourceFel": "SIGNATURE RESSOURCES MONDIALES CORP CL FRD CAD",
+      "harbourCorporateClassFel": "HARBOUR CATÉGORIE DE SOCIÉTÉ FRD CAD",
+      "signatureGlobalResourceDsc": "SIGNATURE RESSOURCES MONDIALES CORP CL RDC CAD",
+      "harbourCorporateClassDsc": "HARBOUR CATÉGORIE DE SOCIÉTÉ RDC CAD",
+      "signatureHighIncomeFel": "SIGNATURE REVENU ÉLEVÉ CATÉGORIE DE SOCIÉTÉ FRD CAD"
+    },
     "sidebar": {
       "summary": "Résumé",
       "portfolio": "Portefeuille",
@@ -19,5 +39,8 @@
       "tools": "Graphiques et outils",
       "householding": "Regroupement familial",
       "advisor": "Conseiller"
+    },
+    "summary": {
+      "Investment": "Investissement"
     }
   }

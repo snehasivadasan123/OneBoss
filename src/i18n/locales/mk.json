@@ -9,6 +9,26 @@
     "assetAllocation": "Распределба на средства",
     "allocationDetails": "Акции: 60% | Обврзници: 30% | Готовина: 10%"
   },
+  "investment": {
+    "totalAssets": "Вкупни средства",
+    "asOfDate": "на ден 25 октомври 2019 освен ако не е поинаку наведено",
+    "openClientName": "ОТВОРЕН Име на клиент, Индивидуален",
+    "openInvestmentPlan": "ОТВОРЕН ПЛАН ЗА ИНВЕСТИРАЊЕ",
+    "totalValue": "Вкупна вредност",
+    "beneficiary": "Корисник",
+    "estate": "Наследство",
+    "supplierAccount": "Сметка на снабдувач",
+    "units": "Единици",
+    "price": "Цена",
+    "marketValue": "Пазарна вредност",
+    "bookValue": "Книжевна вредност",
+    "transactions": "Трансакции",
+    "signatureGlobalResourceFel": "SIGNATURE ГЛОБАЛНИ РЕСУРСИ КОРП КЛ ФЕЛ CAD",
+    "harbourCorporateClassFel": "HARBOUR КОРПОРАТИВНА КЛАСА ФЕЛ CAD",
+    "signatureGlobalResourceDsc": "SIGNATURE ГЛОБАЛНИ РЕСУРСИ КОРП КЛ ДСК CAD",
+    "harbourCorporateClassDsc": "HARBOUR КОРПОРАТИВНА КЛАСА ДСК CAD",
+    "signatureHighIncomeFel": "SIGNATURE ВИСОК ПРИХОД КОРПОРАТИВНА КЛАСА ФЕЛ CAD"
+  },
   "sidebar": {
     "summary": "Резиме",
     "portfolio": "Портфолио",
@@ -19,5 +39,8 @@
     "tools": "Графици и алатки",
     "householding": "Семејно поврзување",
     "advisor": "Советник"
+  },
+  "summary": {
+    "Investment": "Инвестиции"
   }
 }
