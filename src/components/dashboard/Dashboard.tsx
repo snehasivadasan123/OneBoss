@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from '../common/LanguageSwitcher';
 
 const Dashboard = () => {
   const { t } = useTranslation();
@@ -10,7 +9,7 @@ const Dashboard = () => {
           <h1 className="text-2xl font-bold">{t('dashboard.title')}</h1>
           <p className="text-gray-600">{t('dashboard.subtitle')}</p>
         </div>
-        <LanguageSwitcher />
+
       </header>
 
       <h1>{t('dashboard.title')}</h1>

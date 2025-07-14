@@ -1,8 +1,23 @@
 import React from 'react'
 //import { CLIENT_ID, REDIRECT_URI, AUTH_SERVER } from '../../auth/authConfig'
 const Login = () => {
+  const CLIENT_ID = "clientId123";
+  const REDIRECT_URI = 'http://localhost:5173/auth/callback'
+  const AUTH_SERVER = 'http://localhost:8080/realms/myrealm/protocol/openid-connect/auth'
+
   const handleLogin = () => {
-    window.location.href = `${window.location.origin}/auth/callback?code=mock123`
+    const state = crypto.randomUUID();
+    const scope = 'openid profile email';
+
+    const authUrl = `${AUTH_SERVER}?` +
+      `client_id=${encodeURIComponent(CLIENT_ID)}` +
+      `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
+      `&response_type=code` +
+      `&scope=${encodeURIComponent(scope)}` +
+      `&state=${encodeURIComponent(state)}` +
+      `&prompt=login`
+
+    window.location.href = authUrl;
   }
 
   return (

@@ -1,4 +1,4 @@
-import { Search, Bell } from "lucide-react"
+import { Search, } from "lucide-react"
 // Update the path below to the correct relative path if needed
 // Update the path below to the correct relative path if needed
 import { Input } from "@/components/ui/input"
@@ -13,6 +13,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { useNavigate } from "react-router-dom"
+import LanguageSwitcher from "../common/LanguageSwitcher"
+import ManualLanguageDropdown from "../common/ManualLanguageDropdown "
 
 export default function Header() {
   const navigate = useNavigate();
@@ -41,10 +43,9 @@ export default function Header() {
       {/* Right Section - Notifications and Profile */}
       <div className="flex items-center space-x-4">
         {/* Notification Bell */}
-        <Button variant="ghost" size="sm" className="p-2">
-          <Bell className="h-5 w-5 text-gray-600" />
-        </Button>
 
+        <LanguageSwitcher />
+        <ManualLanguageDropdown />
         {/* User Profile Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
