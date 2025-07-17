@@ -47,10 +47,10 @@ export default function Header() {
         {/* User Profile Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center space-x-2 p-2">
+            <Button variant="ghost" className="flex items-center space-x-2 p-2 ">
               <Avatar className="h-8 w-8">
                 <AvatarImage src="/placeholder.svg?height=32&width=32" alt="Liana Sepp" />
-                <AvatarFallback>LS</AvatarFallback>
+                <AvatarFallback className="text-gray-500">LS</AvatarFallback>
               </Avatar>
               <span className="text-sm font-medium text-gray-700">Liana Sepp</span>
             </Button>

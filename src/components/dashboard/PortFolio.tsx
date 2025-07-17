@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
@@ -128,7 +129,7 @@ const Dashboard = () => {
                       </span>
                       <span className="text-xs text-gray-600 mt-1">
                         <span className="text-xs text-gray-600 mt-1">
-                          {t(investment.nameKey)}
+                          {t(investment.nameKey as any)}
                         </span>
 
                       </span>

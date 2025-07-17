@@ -1,9 +1,10 @@
-import React from 'react'
-//import { CLIENT_ID, REDIRECT_URI, AUTH_SERVER } from '../../auth/authConfig'
+
+
+
 const Login = () => {
-  const CLIENT_ID = "clientId123";
-  const REDIRECT_URI = 'http://localhost:5173/auth/callback'
-  const AUTH_SERVER = 'http://localhost:8080/realms/myrealm/protocol/openid-connect/auth'
+  const CLIENT_ID = import.meta.env.VITE_API_CLIENT_ID
+  const REDIRECT_URI = import.meta.env.VITE_API_REDIRECT_URI
+  const AUTH_SERVER = import.meta.env.VITE_API_AUTH_SERVER_URL
 
   const handleLogin = () => {
     const state = crypto.randomUUID();
@@ -18,7 +19,9 @@ const Login = () => {
       `&prompt=login`
 
     window.location.href = authUrl;
+
   }
+
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">

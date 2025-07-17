@@ -1,8 +1,9 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* Custom dark mode variant (class-based) */
+@custom-variant dark (&:where(.dark, .dark *));
 
+/* Aliases for CSS variables to be used in Tailwind classes */
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -41,6 +42,7 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* 🌞 Light mode (default) */
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -74,6 +76,7 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  color-scheme: light;
 }
 
 .dark {
@@ -89,7 +92,7 @@
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: oklch(0.35 0.05 250);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -108,12 +111,23 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  color-scheme: dark;
+}
+
+/* Optional: System preference fallback (if no .dark class is used) */
+@media (prefers-color-scheme: dark) {
+  :root:not(.dark) {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    color-scheme: dark;
+  }
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }

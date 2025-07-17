@@ -1,12 +1,13 @@
 // src/auth/tokenService.ts
 export const exchangeCodeForToken = async (code: string): Promise<void> => {
   console.log(' code is:', code)
-  const tokenUrl = 'http://localhost:8080/realms/myrealm/protocol/openid-connect/token';
-  const clientId = 'clientId123'
-  const clientSecret = '02mPyr1m27RYlckOnIU4Td1eAN9tCDk2'
-  const redirectUri = 'http://localhost:5173/auth/callback'; // same as Keycloak config
-  const basicAuth = btoa(`${clientId}:${clientSecret}`);
+  const tokenUrl = import.meta.env.VITE_API_AUTH_SERVER_URL + "/token"
+  const userInfoUrl = import.meta.env.VITE_API_AUTH_SERVER_URL + "/userinfo"
 
+  const clientId = import.meta.env.VITE_API_CLIENT_ID
+  const clientSecret = import.meta.env.VITE_API_CLIENT_SECRET
+  const redirectUri = import.meta.env.VITE_API_REDIRECT_URI
+  const basicAuth = btoa(`${clientId}:${clientSecret}`)
 
   const params = new URLSearchParams();
   params.append('grant_type', 'authorization_code');
@@ -32,7 +33,16 @@ export const exchangeCodeForToken = async (code: string): Promise<void> => {
 
 
     localStorage.setItem('access_token', tokenData.access_token);
-    localStorage.setItem('refresh_token', tokenData.refresh_token);
+    localStorage.setItem('refresh_token', tokenData.refresh_token)
+    const userInfoData = await fetch(userInfoUrl, {
+      method: "GET",
+      headers: {
+        'Authorization': `Bearer ${tokenData.access_token}`,
+      }
+    })
+    const userInfo = await userInfoData.json();
+    console.log('User info:', userInfo);
+
 
   } catch (error) {
     console.error('Error exchanging code for token:', error);

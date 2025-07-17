@@ -14,7 +14,7 @@ const LanguageSwitcher = () => {
       <select
         onChange={changeLanguage}
         value={i18n.language}
-        className="p-2 border rounded"
+        className="p-2 border rounded text-gray-500"
       >
         <option value="en">English</option>
         <option value="fr">Français</option>

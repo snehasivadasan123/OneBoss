@@ -10,10 +10,11 @@
   ],
   "compilerOptions": {
     "baseUrl": ".",
+    // "verbatimModuleSyntax": true,
     "paths": {
       "@/*": [
         "src/*"
       ]
-    }
+    },
   }
 }
