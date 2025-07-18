@@ -10,6 +10,9 @@ import {
   LinearScale,
 } from 'chart.js';
 import { useTranslation } from 'react-i18next'
+// import axios from 'axios';
+
+import axios from 'axios';
 
 // Register Chart.js componentsi
 
@@ -34,14 +37,13 @@ const Summary = () => {
 
     const fetchData = async () => {
       try {
-        const response = await fetch("/chart.json")
-        const data = await response.json()
+        const response = await axios.get('/chart.json');
+        const data = response.data;
         console.log(data.labels)
         setChartData({
           labels: data.labels,
           datasets: [
             {
-
               label: 'investments',
               data: data.data,
               backgroundColor: [
@@ -61,8 +63,6 @@ const Summary = () => {
             }
           ]
         })
-
-
       } catch (error) {
         console.log(error)
       }

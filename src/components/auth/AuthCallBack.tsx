@@ -5,11 +5,9 @@ import { exchangeCodeForToken } from '../../services/auth/tokenService'
 const AuthCallback = () => {
   const navigate = useNavigate()
   const hasRun = useRef(false)
-
   useEffect(() => {
     if (hasRun.current) return
     hasRun.current = true
-
     const urlParams = new URLSearchParams(window.location.search)
     const code = urlParams.get('code')
 

@@ -1,5 +1,5 @@
 import ClientAddress from './address'
-import { Gender } from '../constants/enums'
+import { Gender } from './enums'
 
 export interface Spouse {
   name?: string;

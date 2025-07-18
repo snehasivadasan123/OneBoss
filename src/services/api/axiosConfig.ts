@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = import.meta.env.VITE_API_BASE_URL
+const baseURL = import.meta.env.VITE_API_AUTH_SERVER_URL
 function getAuthToken() {
   return localStorage.getItem("access_token");
 }
@@ -12,7 +12,7 @@ export const axiosInstance = axios.create({
   },
 });
 
-// REQUEST INTERCEPTOR: Add token to every request
+// REQUEST INTERCEPTOR
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = getAuthToken();

@@ -1,6 +1,6 @@
 import type { IndividualClient } from "./individual-client";
 import type { CorporateClient } from "./corporate-client";
-import type { ClientStatus } from "@/constants/enums";
+import type { ClientStatus } from "@/types/client/enums";
 
 // Union type
 export type Client = IndividualClient | CorporateClient;

@@ -1,5 +1,5 @@
 import axios from "./axiosConfig";
-import { Client, ClientSearchParams } from "../../types/client";
+import { Client, ClientSearchParams } from "../../types/client/client";
 
 // Get a single client by UUID
 export const getClient = (uuid: string) => {

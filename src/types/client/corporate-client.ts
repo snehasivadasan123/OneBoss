@@ -1,5 +1,5 @@
 import type { BaseClient } from "./base-client";
-import type { ClientType } from "@/constants/enums";
+import type { ClientType } from "@/types/client/enums";
 
 export interface CorporateClient extends BaseClient {
   clientType:

@@ -1,4 +1,4 @@
-import type { DocumentType } from "@/constants/enums";
+import type { DocumentType } from "@/types/client/enums";
 
 export interface ClientIdDocument {
   oneBossId?: number;

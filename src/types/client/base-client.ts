@@ -10,7 +10,7 @@ import type {
   ClientCrsEligibility,
   CrsEntityType,
   ClientPoliticallyExposedPerson,
-} from "@/constants/enums";
+} from "@/types/client/enums";
 
 import type ClientAddress from "./address";
 import type { ClientIdDocument } from "./client-id-document";

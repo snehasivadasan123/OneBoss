@@ -1,5 +1,5 @@
 import type { BaseClient } from "./base-client";
-import type { ClientType, ClientTitle, Gender, ClientMaritalStatus } from "@/constants/enums";
+import type { ClientType, ClientTitle, Gender, ClientMaritalStatus } from "@/types/client/enums";
 import type { Spouse } from "./spouse";
 
 export interface IndividualClient extends BaseClient {

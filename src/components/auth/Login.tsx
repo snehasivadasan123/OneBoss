@@ -1,6 +1,4 @@
 
-
-
 const Login = () => {
   const CLIENT_ID = import.meta.env.VITE_API_CLIENT_ID
   const REDIRECT_URI = import.meta.env.VITE_API_REDIRECT_URI
@@ -9,20 +7,16 @@ const Login = () => {
   const handleLogin = () => {
     const state = crypto.randomUUID();
     const scope = 'openid profile email';
-
-    const authUrl = `${AUTH_SERVER}?` +
+    const authUrl = `${AUTH_SERVER}/auth?` +
       `client_id=${encodeURIComponent(CLIENT_ID)}` +
       `&redirect_uri=${encodeURIComponent(REDIRECT_URI)}` +
       `&response_type=code` +
       `&scope=${encodeURIComponent(scope)}` +
       `&state=${encodeURIComponent(state)}` +
       `&prompt=login`
-
     window.location.href = authUrl;
 
   }
-
-
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <button
