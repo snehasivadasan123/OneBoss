@@ -13,16 +13,17 @@ export const searchPlans = (params?: PlanSearchParams) => {
 };
 
 // Create a new plan
-export const createPlan = (data: Partial<Plan>) => {
-  return axios.post<Plan>("/plan", data);
-};
+
+// export const createPlan = (data: Partial<Plan>) => {
+//   return axios.post<Plan>("/plan", data);
+// };
 
 // Update a plan
-export const updatePlan = (dealerAccountCode: string, data: Partial<Plan>) => {
-  return axios.put<Plan>(`/plan/${dealerAccountCode}`, data);
-};
+// export const updatePlan = (dealerAccountCode: string, data: Partial<Plan>) => {
+//   return axios.put<Plan>(`/plan/${dealerAccountCode}`, data);
+// };
 
 // Delete a plan (only plans in 'DRAFT' status can be deleted)
-export const deletePlan = (dealerAccountCode: string) => {
-  return axios.delete(`/plan/${dealerAccountCode}`);
-};
+// export const deletePlan = (dealerAccountCode: string) => {
+//   return axios.delete(`/plan/${dealerAccountCode}`);
+// };

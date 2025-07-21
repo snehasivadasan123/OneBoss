@@ -4,7 +4,7 @@ import {
   PlanAccountDesignation,
   PlanTimeHorizon,
 } from "./enums";
-import { BankAccount } from "../client/bank-account";
+import { BankAccount } from "../client/client";
 
 export interface Plan {
   dealerAccountCode?: string;

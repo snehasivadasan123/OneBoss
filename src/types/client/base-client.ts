@@ -2,20 +2,17 @@ import type {
   ClientType,
   ClientStatus,
   ClientDeliveryStatus,
-  PersonalIncomeRange,
   ClientKnowledge,
   ClientFatcaEligibility,
-  ClientFatcaCrsNoTinReason,
-  FatcaEntityType,
   ClientCrsEligibility,
-  CrsEntityType,
+
   ClientPoliticallyExposedPerson,
-} from "@/types/client/enums";
+} from "@/types/client/enums"
+import { ClientFatcaCrsNoTinReason, CrsEntityType, FatcaEntityType, PersonalIncomeRange } from "../commonEnums/enums";
 
-import type ClientAddress from "./address";
-import type { ClientIdDocument } from "./client-id-document";
-import type { BankAccount } from "./bank-account";
-
+import ClientAddress, { ClientIdDocument } from "./client";
+// import client-id - document from "./client-id-document";
+import { BankAccount } from "./client";
 export interface BaseClient {
   oneBossId?: number;
   uuid?: string;
