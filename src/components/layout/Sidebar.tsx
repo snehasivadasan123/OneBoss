@@ -1,81 +1,117 @@
-"use client"
+import { NavLink } from "react-router-dom"
+import { LayoutDashboard, Briefcase, BarChart, FileText, File, CircleCheck, Users, MessageSquare } from "lucide-react"
 
 import {
-  BarChart3,
-  FileText,
-  User,
-  Folder,
-  CheckSquare,
-  TrendingUp,
-  Home,
-  UserCheck,
-  Menu,
-} from "lucide-react"
-import { useState } from "react"
-import { NavLink } from "react-router-dom"
-import { Button } from "@/components/ui/button"
+  Sidebar,
+  SidebarContent,
+  SidebarHeader,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+} from "@/components/ui/sidebar"
 
-const navigationItems = [
-  { key: "summary", url: "/summary", icon: BarChart3 },
-  { key: "portfolio", url: "/portfolio", icon: TrendingUp },
-  { key: "estatements", url: "/portfolio", icon: FileText },
-  { key: "profile", url: "/summary", icon: User },
-  { key: "documents", url: "/portfolio", icon: Folder },
-  { key: "approval", url: "/summary", icon: CheckSquare },
-  { key: "tools", url: "/portfolio", icon: BarChart3 },
-  { key: "householding", url: "/summary", icon: Home },
-  { key: "advisor", url: "/portfolio", icon: UserCheck }
+const items = [
+  {
+    title: "OVERVIEW",
+    isSection: true,
+    items: [
+      {
+        title: "Dashboard",
+        url: "/dashboard",
+        icon: LayoutDashboard,
+        isActive: true, // This item will be active by default for demonstration
+      },
+      {
+        title: "Portfolio",
+        url: "/portfolio",
+        icon: Briefcase,
+      },
+      {
+        title: "Analytics",
+        url: "/analytics",
+        icon: BarChart,
+      },
+    ],
+  },
+  {
+    title: "TRADE CONFIRMATION",
+    isSection: true,
+    items: [
+      {
+        title: "E-Statements",
+        url: "/e-statements",
+        icon: FileText,
+      },
+      {
+        title: "Documents",
+        url: "/documents",
+        icon: File,
+      },
+      {
+        title: "Approvals",
+        url: "/approvals",
+        icon: CircleCheck,
+      },
+    ],
+  },
+  {
+    title: "MANAGEMENT",
+    isSection: true,
+    items: [
+      {
+        title: "Householding",
+        url: "/householding",
+        icon: Users,
+      },
+      {
+        title: "Advisor",
+        url: "/advisor",
+        icon: MessageSquare,
+      },
+    ],
+  },
 ]
 
-interface SidebarProps {
-  className?: string
-  children?: React.ReactNode
-}
-
-import { useTranslation } from "react-i18next"
-
-export default function Sidebar({ className = "", children }: SidebarProps) {
-  const [isOpen, setIsOpen] = useState(true)
-  const { t } = useTranslation()
-
+export function AppSidebar() {
   return (
-    <div className="flex h-screen bg-gray-100">
-      <aside className={`transition-all duration-300 bg-white border-r border-gray-200 ${isOpen ? "w-64" : "w-16"} ${className}`}>
-        <div className="flex flex-col h-full">
-          <div className="flex justify-end p-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              className="h-8 w-8"
-            >
-              <Menu className="h-5 w-5" />
-            </Button>
-          </div>
-
-          <nav className="flex-1 space-y-1 px-2">
-            {navigationItems.map((item) => (
-              <NavLink
-                key={item.key}
-                to={item.url}
-                className={({ isActive }) =>
-                  `group flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${isActive
-                    ? "bg-blue-50 text-blue-600"
-                    : "text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-                  }`
-                }
-              >
-                <item.icon className="h-5 w-5 min-w-[20px]" />
-                {isOpen && <span className="truncate">{t(`sidebar.${item.key}`)}</span>}
-              </NavLink>
-            ))}
-          </nav>
+    <Sidebar>
+      <SidebarHeader className="p-4 pb-2">
+        <div className="flex items-center gap-2">
+          <img src="/image/OneBoss.png" alt="One Boss Logo" className="h-6 w-6" />
+          <span className="text-lg font-semibold">One Boss</span>
         </div>
-      </aside>
 
-      <div className="flex flex-1 flex-col">
-        <main className="flex-1 overflow-y-auto p-6">{children}</main>
-      </div>
-    </div>
+      </SidebarHeader>
+      <SidebarContent>
+        {items.map((section) => (
+          <SidebarGroup key={section.title}>
+            <SidebarGroupLabel className="px-4 py-2 text-xs font-medium uppercase text-gray-500 dark:text-gray-400">
+              {section.title}
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {section.items.map((item) => (
+                  <SidebarMenuItem key={item.title}>
+                    <SidebarMenuButton
+                      asChild
+                      // Use NavLink's isActive prop to apply active styles
+                      className={item.isActive ? "bg-black text-white" : ""}
+                    >
+                      <NavLink to={item.url} className={({ isActive }) => (isActive ? "bg-black text-white" : "")}>
+                        <item.icon />
+                        <span>{item.title}</span>
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ))}
+      </SidebarContent>
+    </Sidebar>
   )
 }

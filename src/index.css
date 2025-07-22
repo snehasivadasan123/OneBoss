@@ -10,6 +10,56 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  /* Typography - Font Families */
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+
+  /* Typography - Font Sizes */
+  --font-size-heading-36: 36px;
+  --font-size-heading-32: 32px;
+  --font-size-heading-30: 30px;
+  --font-size-heading-26: 26px;
+  --font-size-heading-24: 24px;
+  --font-size-subheading-26: 26px;
+  --font-size-subheading-24: 24px;
+  --font-size-subheading-20: 20px;
+  --font-size-subheading-19: 19px;
+  --font-size-subheading-16: 16px;
+  --font-size-subheading-14: 14px;
+  --font-size-body-16: 16px;
+  --font-size-body-14: 14px;
+  --font-size-body-12: 12px;
+  --font-size-body-10: 10px;
+  --font-size-caption-12: 12px;
+  --font-size-caption-10: 10px;
+
+  /* Typography - Line Heights */
+  --line-height-heading-36: 40px;
+  --line-height-heading-32: 36px;
+  --line-height-heading-30: 34px;
+  --line-height-heading-26: 30px;
+  --line-height-heading-24: 28px;
+  --line-height-subheading-26: auto;
+  --line-height-subheading-24: auto;
+  --line-height-subheading-20: auto;
+  --line-height-subheading-19: auto;
+  --line-height-subheading-16: auto;
+  --line-height-subheading-14: auto;
+  --line-height-body-16: auto;
+  --line-height-body-14: auto;
+  --line-height-body-12: auto;
+  --line-height-body-10: auto;
+  --line-height-caption-12: auto;
+  --line-height-caption-10: auto;
+
+  /* Typography - Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+
+
+  /* Existing colors */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -41,9 +91,69 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Primary Colors - */
+  --color-primary-50: #FFFFFF;
+  --color-primary-100: #F5F5F5;
+  --color-primary-200: #F4F4F4;
+  --color-primary-300: #C8C8C8;
+  --color-primary-400: #A8A8A8;
+  --color-primary-500: #848484;
+  --color-primary-600: #606668;
+  --color-primary-700: #4D4D4D;
+  --color-primary-800: #3B3B3B;
+  --color-primary-900: #11160A;
+  --color-primary-950: #010101;
+
+  /* Error Colors - From Figma */
+  --color-error-50: #FCF3F3;
+  --color-error-100: #FEF4A4;
+  --color-error-200: #FCBCBC;
+  --color-error-300: #F22E2E;
+  --color-error-400: #E14646;
+  --color-error-500: #FF4F4F;
+  --color-error-600: #EB5146;
+  --color-error-700: #B73F3F;
+  --color-error-800: #91191A;
+  --color-error-900: #66A04A;
+
+  /* Warning Colors - */
+  --color-warning-50: #FFFCCD;
+  --color-warning-100: #F4F319;
+  --color-warning-200: #E18350;
+  --color-warning-300: #C27702;
+  --color-warning-400: #E4F518;
+  --color-warning-500: #FBC531;
+  --color-warning-600: #E18643;
+  --color-warning-700: #E3C546;
+  --color-warning-800: #BF3C5;
+  --color-warning-900: #FFDC10;
+
+  --color-success-50: #F0FD5;
+  --color-success-100: #A1D015;
+  --color-success-200: #4CB396;
+  --color-success-300: #6AC22E;
+  --color-success-400: #6AC22E;
+  --color-success-500: #44CF6C;
+  --color-success-600: #50F64;
+  --color-success-700: #4CB396;
+  --color-success-800: #6DC21;
+  --color-success-900: #1D8135;
+
+  /* Info Colors -  */
+  --color-info-50: #E7F5FF;
+  --color-info-100: #B1E5FC;
+  --color-info-200: #72D5F7;
+  --color-info-300: #1FA2E4;
+  --color-info-400: #1185C5;
+  --color-info-500: #0074CC;
+  --color-info-600: #005A9D;
+  --color-info-700: #004578;
+  --color-info-800: #003153;
+  --color-info-900: #001E35;
 }
 
-/* 🌞 Light mode (default) */
+/*  Light mode (default) */
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -79,6 +189,7 @@
   --sidebar-ring: oklch(0.708 0 0);
   color-scheme: light;
 }
+
 
 .dark {
   --background: oklch(0.145 0 0);
@@ -116,29 +227,184 @@
 }
 
 /* Optional: System preference fallback (if no .dark class is used) */
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root:not(.dark) {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     color-scheme: dark;
   }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+} */
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+
+  /* Heading Styles */
+  .heading-36-bold {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-heading-36);
+    line-height: var(--line-height-heading-36);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .heading-32-bold {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-heading-32);
+    line-height: var(--line-height-heading-32);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .heading-30-bold {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-heading-30);
+    line-height: var(--line-height-heading-30);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .heading-26-bold {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-heading-26);
+    line-height: var(--line-height-heading-26);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .heading-24-bold {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-heading-24);
+    line-height: var(--line-height-heading-24);
+    font-weight: var(--font-weight-bold);
+  }
+
+  /* Subheading Styles */
+  .subheading-26-semibold {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-subheading-26);
+    line-height: var(--line-height-subheading-26);
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  .subheading-24-semibold {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-subheading-24);
+    line-height: var(--line-height-subheading-24);
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  .subheading-20-semibold {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-subheading-20);
+    line-height: var(--line-height-subheading-20);
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  .subheading-19-medium {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-subheading-19);
+    line-height: var(--line-height-subheading-19);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .subheading-16-semibold {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-subheading-16);
+    line-height: var(--line-height-subheading-16);
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  .subheading-14-semibold {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-subheading-14);
+    line-height: var(--line-height-subheading-14);
+    font-weight: var(--font-weight-semi-bold);
+  }
+
+  /* Body Styles */
+  .body-16-medium {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-16);
+    line-height: var(--line-height-body-16);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .body-16-regular {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-16);
+    line-height: var(--line-height-body-16);
+    font-weight: var(--font-weight-regular);
+  }
+
+  .body-14-medium {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-14);
+    line-height: var(--line-height-body-14);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .body-14-regular {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-14);
+    line-height: var(--line-height-body-14);
+    font-weight: var(--font-weight-regular);
+  }
+
+  .body-12-medium {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-12);
+    line-height: var(--line-height-body-12);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .body-12-regular {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-12);
+    line-height: var(--line-height-body-12);
+    font-weight: var(--font-weight-regular);
+  }
+
+  .body-10-medium {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-10);
+    line-height: var(--line-height-body-10);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .body-10-regular {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body-10);
+    line-height: var(--line-height-body-10);
+    font-weight: var(--font-weight-regular);
+  }
+
+  /* Caption Styles */
+  .caption-12-medium {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-caption-12);
+    line-height: var(--line-height-caption-12);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .caption-10-medium {
+    font-family: var(--font-sans);
+    font-size: var(--font-size-caption-10);
+    line-height: var(--line-height-caption-10);
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+[data-sidebar="rail"],
+[data-slot="sidebar-rail"] {
+  background: var(--sidebar-border, #e5e7eb) !important;
+  /* fallback to Tailwind's bg-gray-200 */
+}
+
+[data-slot="sidebar-inset"] {
+  background: var(--background) !important;
 }

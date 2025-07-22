@@ -10,14 +10,10 @@ import {
   LinearScale,
 } from 'chart.js';
 import { useTranslation } from 'react-i18next'
-// import axios from 'axios';
-
 import axios from 'axios';
 
-// Register Chart.js componentsi
-
-
 ChartJS.register(ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+
 interface ChartData {
   labels: string[];
   datasets: Array<{
@@ -32,14 +28,11 @@ const Summary = () => {
   const [chartData, setChartData] = useState<ChartData | null>(null)
   const { t } = useTranslation()
 
-  // Fetch chart data from JSON file
   useEffect(() => {
-
     const fetchData = async () => {
       try {
         const response = await axios.get('/chart.json');
         const data = response.data;
-        console.log(data.labels)
         setChartData({
           labels: data.labels,
           datasets: [
@@ -68,12 +61,15 @@ const Summary = () => {
       }
     }
     fetchData()
-
   }, [])
 
   return (
-    <div className='border border-black-200 flex-gap-6'> <h2>{t('summary.Investment')} </h2>
-      <div className='flex flex-wrap gap-6  mt-5'>
+    <div
+      className="p-6 rounded-lg shadow-sm"
+      style={{ background: "var(--card)", color: "var(--foreground)" }}
+    >
+      <h2 className="text-xl font-semibold mb-4" style={{ color: "var(--foreground)" }}>{t('summary.Investment')}</h2>
+      <div className='flex flex-wrap gap-6 mt-5'>
         <div style={{ width: '300px', height: '400px' }}>
           {
             chartData ?
@@ -81,7 +77,6 @@ const Summary = () => {
               (<div>Loading...</div>)
           }
         </div >
-
         <div style={{ width: '300px', height: '300px' }}>
           {
             chartData ? (<Bar key={JSON.stringify(chartData)} data={chartData} options={{
@@ -97,11 +92,9 @@ const Summary = () => {
               },
             }} />) : (<div>Loading...</div>)
           }
-
         </div>
       </div>
-
-    </div >
+    </div>
   )
 }
 

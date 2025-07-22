@@ -1,14 +1,14 @@
-import axios from "./axiosConfig";
+import axiosInstance from "./axiosConfig";
 import { Client, ClientSearchParams } from "../../types/client/client";
 
 // Get a single client by UUID
 export const getClient = (uuid: string) => {
-  return axios.get<Client>(`/client/${uuid}`);
+  return axiosInstance.get<Client>(`/client/${uuid}`);
 };
 
 // Search clients
 export const searchClients = (params: ClientSearchParams) => {
-  return axios.get<Client[]>("/client", { params });
+  return axiosInstance.get<Client[]>("/client", { params });
 };
 
 // Create a new client
