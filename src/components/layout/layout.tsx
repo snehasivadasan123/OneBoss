@@ -1,25 +1,25 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+//import { Navbar1 } from './Header'
 import Header from './Header'
 import { AppSidebar } from './Sidebar'
-import { SidebarProvider, SidebarInset } from '../ui/sidebar'
-
+import { SidebarProvider } from '../ui/sidebar'
 const Layout = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <SidebarProvider>
-        <div className="flex flex-1">
-          <AppSidebar />
-          <SidebarInset>
-            <div className="p-4">
-              <Outlet />
-            </div>
-          </SidebarInset>
+    <SidebarProvider>
+      <div className="flex min-h-screen w-full">
+        <AppSidebar />
+
+        <div className="flex flex-col flex-1 min-w-0">
+          <Header />
+          <main className="flex-1 overflow-y-auto p-4">
+            <Outlet />
+          </main>
         </div>
-      </SidebarProvider>
-    </div>
-  )
-}
+      </div>
+    </SidebarProvider>
+  );
+};
+
 
 export default Layout

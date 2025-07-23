@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { LayoutDashboard, Briefcase, BarChart, FileText, File, CircleCheck, Users, MessageSquare } from "lucide-react"
+import { House, BriefcaseBusiness, ChartPie, FileText, File, CircleCheck, Users, MessageCircle } from "lucide-react"
 
 import {
   Sidebar,
@@ -21,18 +21,18 @@ const items = [
       {
         title: "Dashboard",
         url: "/dashboard",
-        icon: LayoutDashboard,
+        icon: House,
         isActive: true, // This item will be active by default for demonstration
       },
       {
         title: "Portfolio",
         url: "/portfolio",
-        icon: Briefcase,
+        icon: BriefcaseBusiness,
       },
       {
         title: "Analytics",
         url: "/analytics",
-        icon: BarChart,
+        icon: ChartPie,
       },
     ],
   },
@@ -69,7 +69,7 @@ const items = [
       {
         title: "Advisor",
         url: "/advisor",
-        icon: MessageSquare,
+        icon: MessageCircle,
       },
     ],
   },
@@ -77,28 +77,27 @@ const items = [
 
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar >
       <SidebarHeader className="p-4 pb-2">
         <div className="flex items-center gap-2">
           <img src="/image/OneBoss.png" alt="One Boss Logo" className="h-6 w-6" />
-          <span className="text-lg font-semibold">One Boss</span>
+          <span className="text-xl font-semibold leading-none">One Boss</span>
         </div>
-
       </SidebarHeader>
       <SidebarContent>
         {items.map((section) => (
-          <SidebarGroup key={section.title}>
-            <SidebarGroupLabel className="px-4 py-2 text-xs font-medium uppercase text-gray-500 dark:text-gray-400">
+          <SidebarGroup key={section.title} className="gap-2">
+            <SidebarGroupLabel className="text-xs font-medium uppercase text-gray-500 dark:text-gray-400">
               {section.title}
             </SidebarGroupLabel>
             <SidebarGroupContent>
-              <SidebarMenu>
+              <SidebarMenu className="">
                 {section.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton
                       asChild
-                      // Use NavLink's isActive prop to apply active styles
-                      className={item.isActive ? "bg-black text-white" : ""}
+                    // NavLink's isActive prop will determine active state
+                    // We pass a function to className to get isActive from NavLink
                     >
                       <NavLink to={item.url} className={({ isActive }) => (isActive ? "bg-black text-white" : "")}>
                         <item.icon />

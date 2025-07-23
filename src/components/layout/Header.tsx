@@ -1,69 +1,40 @@
-import { Search, } from "lucide-react"
+import { Bell, Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { useNavigate } from "react-router-dom"
-import LanguageSwitcher from "../common/LanguageSwitcher"
-import ManualLanguageDropdown from "../common/ManualLanguageDropdown "
+import { Button } from "@/components/ui/button"
 
 export default function Header() {
-  const navigate = useNavigate();
   return (
-    <header className="flex items-center justify-between px-6 py-3 bg-white border-b border-gray-200">
-      {/* Logo Section */}
-      <div className="flex items-center space-x-2">
-        <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
-          <div className="w-4 h-4 bg-white rounded-sm"></div>
-        </div>
-        <span className="text-lg font-semibold text-gray-900">One Boss</span>
+    <header className="w-full flex items-center justify-between p-5 bg-white border-b border-gray-200">
+      {/* Left Section: Dashboard Title */}
+      <div className="flex items-center">
+        <h2 className="text-2xl font-bold">Dashboard</h2>
       </div>
-
-      {/* Search Bar */}
-      <div className="flex-1 max-w-md mx-8">
-        <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-          <Input
-            type="text"
-            placeholder="Search here..."
-            className="pl-10 pr-4 py-2 w-full bg-gray-50 border-gray-200 focus:bg-white focus:border-purple-300 focus:ring-purple-200"
-          />
-        </div>
+      {/* Middle Section: Search Input */}
+      <div className="relative flex-1 max-w-md mx-4">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+        <Input
+          type="search"
+          placeholder="Search here..."
+          className="w-full pl-9 pr-4 py-2 rounded-md border border-input bg-background shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+        />
       </div>
-
-      {/* Right Section - Notifications and Profile */}
-      <div className="flex items-center space-x-4">
-        {/* Notification Bell */}
-
-        <LanguageSwitcher />
-        <ManualLanguageDropdown />
-        {/* User Profile Dropdown */}
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="flex items-center space-x-2 p-2 ">
-              <Avatar className="h-8 w-8">
-                <AvatarImage src="/placeholder.svg?height=32&width=32" alt="Liana Sepp" />
-                <AvatarFallback className="text-gray-500">LS</AvatarFallback>
-              </Avatar>
-              <span className="text-sm font-medium text-gray-700">Liana Sepp</span>
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-56">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-            <DropdownMenuItem>Support</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => { localStorage.removeItem('access_token'); navigate("/") }}>Log out</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+      {/* Right Section: Notifications and User Profile */}
+      <div className="flex items-center gap-4">
+        <Button variant="ghost" size="icon" className="relative">
+          <Bell className="h-5 w-5" />
+          <span className="sr-only">Notifications</span>
+        </Button>
+        <div className="flex items-center gap-2">
+          <Avatar className="h-9 w-9">
+            <AvatarImage src="/placeholder.svg?height=36&width=36" alt="Liana Sepp" />
+            <AvatarFallback>LS</AvatarFallback>
+          </Avatar>
+          <div className="flex flex-col">
+            <span className="text-sm font-medium">Liana Sepp</span>
+            <span className="text-xs text-muted-foreground">Admin</span>
+          </div>
+        </div>
       </div>
     </header>
   )

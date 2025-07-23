@@ -1,101 +1,92 @@
-import React, { useEffect, useState } from 'react'
-import { Bar, Pie } from 'react-chartjs-2'
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-} from 'chart.js';
-import { useTranslation } from 'react-i18next'
-import axios from 'axios';
+import { Card, CardContent, CardHeader } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+import InvestmentPlanItem from "./investment-plan-item"
+import { TrendingUp, ChartPie, ArrowUp, } from "lucide-react"
 
-ChartJS.register(ArcElement, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
-
-interface ChartData {
-  labels: string[];
-  datasets: Array<{
-    label: string;
-    data: number[];
-    backgroundColor: string[];
-    borderColor: string[];
-  }>;
-}
-
-const Summary = () => {
-  const [chartData, setChartData] = useState<ChartData | null>(null)
-  const { t } = useTranslation()
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('/chart.json');
-        const data = response.data;
-        setChartData({
-          labels: data.labels,
-          datasets: [
-            {
-              label: 'investments',
-              data: data.data,
-              backgroundColor: [
-                'rgba(105, 35, 80, 0.6)',
-                'rgba(6, 29, 45, 0.6)',
-                'rgba(13, 6, 57, 0.6)',
-                'rgba(199, 151, 40, 0.6)',
-                'rgba(104, 8, 8, 0.6)'
-              ],
-              borderColor: [
-                'rgba(18, 37, 30, 1)',
-                'rgba(6, 29, 45, 1)',
-                'rgba(34, 84, 63, 1)',
-                'rgba(71, 107, 107, 1)',
-                'rgba(114, 137, 141, 1)'
-              ]
-            }
-          ]
-        })
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    fetchData()
-  }, [])
+export default function Summary() {
+  const investmentPlans = [
+    {
+      id: "1",
+      icon: TrendingUp,
+      name: "Growth Portfolio",
+      description: "Tech & Growth Stocks",
+      clients: 23,
+      amount: 847395,
+      change: 12.4,
+    },
+    {
+      id: "2",
+      icon: ChartPie,
+      name: "Conservative Fund",
+      description: "Tech & Growth Stocks",
+      clients: 23,
+      amount: 847395,
+      change: 12.4,
+    },
+    {
+      id: "3",
+      icon: TrendingUp,
+      name: "Retirement Fund",
+      description: "Tech & Growth Stocks",
+      clients: 23,
+      amount: 847395,
+      change: 12.4,
+    },
+    {
+      id: "4",
+      icon: ArrowUp,
+      name: "Trading Account",
+      description: "Tech & Growth Stocks",
+      clients: 23,
+      amount: 847395,
+      change: 12.4,
+    },
+    {
+      id: "5",
+      icon: TrendingUp,
+      name: "Client Accounts",
+      description: "Tech & Growth Stocks",
+      clients: 23,
+      amount: 847395,
+      change: 12.4,
+    },
+    {
+      id: "6",
+      icon: TrendingUp,
+      name: "Retirement Fund",
+      description: "Tech & Growth Stocks",
+      clients: 23,
+      amount: 847395,
+      change: 12.4,
+    },
+    {
+      id: "7",
+      icon: ArrowUp,
+      name: "Trading Account",
+      description: "Tech & Growth Stocks",
+      clients: 23,
+      amount: 847395,
+      change: 12.4,
+    },
+  ]
 
   return (
-    <div
-      className="p-6 rounded-lg shadow-sm"
-      style={{ background: "var(--card)", color: "var(--foreground)" }}
-    >
-      <h2 className="text-xl font-semibold mb-4" style={{ color: "var(--foreground)" }}>{t('summary.Investment')}</h2>
-      <div className='flex flex-wrap gap-6 mt-5'>
-        <div style={{ width: '300px', height: '400px' }}>
-          {
-            chartData ?
-              (<Pie key={JSON.stringify(chartData)} data={chartData} />) :
-              (<div>Loading...</div>)
-          }
-        </div >
-        <div style={{ width: '300px', height: '300px' }}>
-          {
-            chartData ? (<Bar key={JSON.stringify(chartData)} data={chartData} options={{
-              responsive: true,
-              maintainAspectRatio: false,
-              scales: {
-                y: {
-                  beginAtZero: true,
-                  ticks: {
-                    stepSize: 50,
-                  },
-                },
-              },
-            }} />) : (<div>Loading...</div>)
-          }
+    <Card className="w-full max-w-[600px] flex flex-col  pt-5 px-5 gap-5">
+      <CardHeader className="p-0 pb-0 space-y-0 w-full">
+        <p className="text-sm text-muted-foreground">Total Assets Under Management</p>
+        <h2 className="text-xl font-bold ">$4,195,392.00</h2>
+        <p className="text-sm text-success-500">+11.2% this month</p>
+      </CardHeader>
+      <Separator className="" />
+      <CardContent className="p-0 w-full flex flex-col gap-2">
+        <div className="flex items-center justify-between w-full mb-2">
+          <h3 className="text-lg font-semibold">Investment Plans</h3>
+          <p className="text-sm text-muted-foreground">7 Plans</p>
         </div>
-      </div>
-    </div>
+        {investmentPlans.map((plan) => (
+          <InvestmentPlanItem key={plan.id} {...plan} />
+        ))}
+      </CardContent>
+    </Card>
   )
 }
-
-export default Summary
