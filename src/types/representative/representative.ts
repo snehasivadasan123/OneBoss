@@ -1,31 +1,29 @@
-import ClientAddress from "../client/client";
+import {
+  RepresentativeAttachmentStatus,
+  RepresentativeAttachmentVisibleByClient,
+  RepresentativeAttachmentLevel,
+} from "./enums";
 
-export type RepresentativePerson = {
-  oneBossId: number;
-  businessName?: string;
-  surname: string;
-  name: string;
-  dob?: string;
-  startDate?: string;
-  endDate?: string;
-  homeFax?: string;
-  homePhone?: string;
-  personalCell?: string;
-  personalEmail?: string;
-  residentialAddress?: ClientAddress;
-  officePhone?: string;
-  officeEmail?: string;
-  officeAddress?: ClientAddress;
+// Attachment Mapping
+export interface RepresentativeAttachmentMapping {
+  entityId: string
+  attachmentLevel: RepresentativeAttachmentLevel
 }
-export type Representative = {
-  code: string;
-  credentials?: string;
-  dealerId: string;
-  managerId?: string;
-  name: string;
-  surname: string;
-  personId: number;
-  startDate?: string;
-  status: string;
-  person: RepresentativePerson;
-};
+
+// Document Type reference
+export interface DocumentType {
+  oneBossId: number
+}
+
+// Main Representative Attachment object
+export interface RepresentativeAttachment {
+  oneBossId: number
+  clientUuid: string
+  createdDate: string // ISO date string
+  data?: string | null // base64-encoded string 
+  description: string
+  documentType: DocumentType
+  status: RepresentativeAttachmentStatus
+  visibleByClient: RepresentativeAttachmentVisibleByClient
+  attachmentMappings?: RepresentativeAttachmentMapping[]
+}

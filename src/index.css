@@ -141,6 +141,8 @@
   --color-success-900: #1D8135;
 
   /* Info Colors -  */
+  --color-info-10: #496BC2;
+  --color-info-20: #D6E5FE;
   --color-info-50: #E7F5FF;
   --color-info-100: #B1E5FC;
   --color-info-200: #72D5F7;
@@ -151,6 +153,7 @@
   --color-info-700: #004578;
   --color-info-800: #003153;
   --color-info-900: #001E35;
+  --color-info-901: #081226
 }
 
 /*  Light mode (default) */

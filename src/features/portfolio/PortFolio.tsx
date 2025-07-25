@@ -2,7 +2,7 @@
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
-const Dashboard = () => {
+const PortFolio = () => {
   const { t } = useTranslation();
 
   // Sample investment data matching the screenshot
@@ -64,9 +64,9 @@ const Dashboard = () => {
       <div className="bg-white shadow-sm border-b-2 border-gray-200 mb-4">
         <div className="flex justify-between items-center py-3 px-4">
           <h1 className="text-lg font-semibold text-gray-800">{t('investment.totalAssets')}</h1>
-          <div className="text-blue-600 font-bold text-lg">
-            {totalAssets.toLocaleString('en-US', { minimumFractionDigits: 2 })}
-          </div>
+
+          {totalAssets.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+
         </div>
 
       </div>
@@ -178,4 +178,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default PortFolio;

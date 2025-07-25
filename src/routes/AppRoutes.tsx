@@ -1,10 +1,11 @@
 
 import { Route, Routes } from 'react-router-dom'
 import DashboardPage from '../pages/DashboardPage'
+import PortfolioPage from '../pages/PortfolioPage'
 import LoginPage from '../pages/LoginPage'
 import AuthCallBackPage from '@/pages/AuthCallBackPage'
 import Layout from '@/components/layout/layout'
-import Summary from '@/components/dashboard/Summary'
+
 import ProtectedRoute from './ProtectedRoute'
 
 const AppRoutes = () => {
@@ -17,9 +18,9 @@ const AppRoutes = () => {
           <Layout />
         </ProtectedRoute>
       }>
-        <Route path="/dashboard" element={<Summary />} />
-        <Route path="/summary" element={<Summary />} />
-        <Route path="/portfolio" element={<DashboardPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+
+        <Route path="/portfolio" element={<PortfolioPage />} />
       </Route>
     </Routes>
   )

@@ -1,4 +1,5 @@
 import { type LucideIcon, } from "lucide-react"
+//import RecentTradingActivity from "./recent-trading-activity"
 
 interface InvestmentPlanItemProps {
   icon: LucideIcon
@@ -42,9 +43,10 @@ export default function InvestmentPlanItem({
             {change > 0 ? `+${change}%` : `${change}%`}
           </span>
         </div>
+
       </div>
 
-
+      {/* <RecentTradingActivity /> */}
     </div>
   )
 }

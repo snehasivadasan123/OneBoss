@@ -2,13 +2,31 @@ import { Bell, Search } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
+import { useLocation } from "react-router-dom";
 
+import { items } from "./Sidebar";
 export default function Header() {
+  const location = useLocation();
+
+  const getPathTitleMap = () => {
+    const map: Record<string, string> = {}
+    items.forEach(section => {
+      section.items.forEach(item => {
+        map[item.url] = item.title
+      })
+    })
+    console.log("?????????????????", map)
+    return map
+
+
+  }
+  const pageTitles = getPathTitleMap()
+  const title = pageTitles[location.pathname]
   return (
     <header className="w-full flex items-center justify-between p-5 bg-white border-b border-gray-200">
       {/* Left Section: Dashboard Title */}
       <div className="flex items-center">
-        <h2 className="text-2xl font-bold">Dashboard</h2>
+        <h2 className="text-2xl font-bold">{title}</h2>
       </div>
       {/* Middle Section: Search Input */}
       <div className="relative flex-1 max-w-md mx-4">

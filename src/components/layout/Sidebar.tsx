@@ -13,7 +13,8 @@ import {
   SidebarMenuButton,
 } from "@/components/ui/sidebar"
 
-const items = [
+
+export const items = [
   {
     title: "OVERVIEW",
     isSection: true,
